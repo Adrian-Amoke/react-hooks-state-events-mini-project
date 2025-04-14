@@ -15,8 +15,8 @@ test("displays the task category", () => {
 
 test("is removed from the list when the delete button is clicked", () => {
   render(<App />);
-  const task = screen.queryByText(/Buy rice/);
-  const deleteButton = task.parentElement.querySelector("button");
+  const task = screen.getByText(/Buy rice/);
+  const deleteButton = screen.getAllByRole('button', { name: 'X' })[0];
 
   fireEvent.click(deleteButton);
 
